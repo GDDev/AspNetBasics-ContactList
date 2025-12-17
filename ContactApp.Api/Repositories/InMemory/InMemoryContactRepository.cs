@@ -1,6 +1,7 @@
-﻿using ContactApp.Models;
+﻿using ContactApp.Api.Repositories.Abstractions;
+using ContactApp.Models;
 
-namespace ContactApp.Repositories
+namespace ContactApp.Api.Repositories.InMemory
 {
     public class InMemoryContactRepository : IContactRepository
     {

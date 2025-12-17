@@ -1,6 +1,6 @@
 ﻿using ContactApp.Models;
 
-namespace ContactApp.Repositories
+namespace ContactApp.Api.Repositories.Abstractions
 {
     public interface IContactRepository
     {

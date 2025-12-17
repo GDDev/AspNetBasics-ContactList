@@ -1,5 +1,5 @@
-﻿using ContactApp.Models;
-using ContactApp.Repositories;
+﻿using ContactApp.Api.Repositories.Abstractions;
+using ContactApp.Models;
 
 namespace ContactApp.Services
 {

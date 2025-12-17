@@ -1,10 +1,11 @@
-using ContactApp.Repositories;
+using ContactApp.Api.Repositories.Abstractions;
+using ContactApp.Api.Repositories.InMemory;
 using ContactApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
 
 builder.Services.AddSingleton<IContactRepository, InMemoryContactRepository>();
 builder.Services.AddScoped<IContactService, ContactService>();
@@ -26,8 +27,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Contacts}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Contacts}/{action=Index}/{id?}");
+app.MapControllers();
 
 app.Run();
