@@ -5,6 +5,7 @@ namespace ContactApp.Services
 {
     public class ContactService(IContactRepository repository) : IContactService
     {
+        // Commment not to be kept
         private readonly IContactRepository _repo = repository;
 
         public Contact? GetContactById(int id) => _repo.GetContactById(id);
