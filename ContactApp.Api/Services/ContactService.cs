@@ -4,7 +4,7 @@ using ContactApp.Models;
 namespace ContactApp.Services
 {
     public class ContactService(IContactRepository repository) : IContactService
-    {
+    { 
         private readonly IContactRepository _repo = repository;
 
         public Contact? GetContactById(int id) => _repo.GetContactById(id);
