@@ -37,4 +37,7 @@ app.UseAuthorization();
 //    pattern: "{controller=Contacts}/{action=Index}/{id?}");
 app.MapControllers();
 
+// Docker health check endpoint
+app.MapGet("/health", () => Results.Ok("OK"));
+
 app.Run();
