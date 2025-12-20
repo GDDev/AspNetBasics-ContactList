@@ -1,14 +1,16 @@
-﻿using ContactApp.Models;
-using ContactApp.Services;
+﻿using ContactApp.Api.Models;
+using ContactApp.Api.Services.Interfaces;
+using ContactApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactApp.Controllers
 {
     [ApiController]
     [Route("api/contacts")]
-    public class ContactsController(IContactService service) : ControllerBase
+    public class ContactsController(IContactService service, ICallRecordService callService) : ControllerBase
     {
         private readonly IContactService _service = service;
+        private readonly ICallRecordService _callService = callService;
 
         //public IActionResult Index()
         //{
@@ -80,5 +82,9 @@ namespace ContactApp.Controllers
             _service.Delete(id);
             return NoContent();
         }
+
+        [HttpGet("{contactId:int}/calls")]
+        public ActionResult<IEnumerable<CallRecord>> GetCalls(int contactId) =>
+            Ok(_callService.GetCallsForContact(contactId));
     }
 }

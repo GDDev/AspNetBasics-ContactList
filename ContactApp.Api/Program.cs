@@ -1,5 +1,7 @@
 using ContactApp.Api.Repositories.Abstractions;
 using ContactApp.Api.Repositories.InMemory;
+using ContactApp.Api.Services;
+using ContactApp.Api.Services.Interfaces;
 using ContactApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddSingleton<IContactRepository, InMemoryContactRepository>();
 builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddSingleton<ICallRecordRepository, InMemoryCallRecordRepository>();
+builder.Services.AddScoped<ICallImportService, CallImportService>();
+builder.Services.AddScoped<ICallRecordService, CallRecordService>();
 
 var app = builder.Build();
 

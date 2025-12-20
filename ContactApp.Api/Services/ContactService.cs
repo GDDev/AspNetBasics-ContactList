@@ -1,4 +1,5 @@
 ﻿using ContactApp.Api.Repositories.Abstractions;
+using ContactApp.Api.Services.Interfaces;
 using ContactApp.Models;
 
 namespace ContactApp.Services

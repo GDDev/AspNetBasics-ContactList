@@ -1,6 +1,6 @@
 ﻿using ContactApp.Models;
 
-namespace ContactApp.Services
+namespace ContactApp.Api.Services.Interfaces
 {
     public interface IContactService
     {
